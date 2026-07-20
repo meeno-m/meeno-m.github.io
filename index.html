@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meena Momand — Web Developer & Data Analyst</title>
+<meta name="description" content="Meena Momand builds websites and measures what they do. WordPress, Drupal, and Wix builds for UN agencies and small businesses, plus analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F6F7F5;
+    --ink: #1A2233;
+    --ink-soft: #4A5568;
+    --lapis: #1E4B8F;
+    --lapis-deep: #0F2A56;
+    --pyrite: #C9A227;
+    --line: #D8DDE4;
+    --display: "Bricolage Grotesque", Georgia, serif;
+    --body: "Public Sans", -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  a { color: var(--lapis); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--pyrite);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(246, 247, 245, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px; max-width: 1080px; margin: 0 auto;
+  }
+  .nav-name { font-family: var(--display); font-weight: 700; font-size: 1.05rem; color: var(--ink); }
+  .nav-name:hover { text-decoration: none; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: var(--ink-soft); font-size: 0.92rem; font-weight: 500; }
+  .nav-links a:hover { color: var(--lapis); text-decoration: none; }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    background: linear-gradient(160deg, var(--lapis) 0%, var(--lapis-deep) 70%);
+    color: #F4F6FA;
+    padding: 96px 0 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .wrap { position: relative; z-index: 2; }
+  .hero-kicker {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pyrite);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 15ch;
+  }
+  .hero p.lede {
+    margin-top: 24px;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    max-width: 52ch;
+    color: #C9D4E6;
+  }
+  .hero p.lede strong { color: #FFFFFF; font-weight: 600; }
+
+  .hero-cta { margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 13px 26px;
+    border-radius: 6px;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-2px); }
+  .btn-gold { background: var(--pyrite); color: var(--lapis-deep); }
+  .btn-gold:hover { background: #DDB53A; }
+  .btn-ghost { border: 1px solid rgba(244, 246, 250, 0.45); color: #F4F6FA; }
+  .btn-ghost:hover { border-color: #F4F6FA; }
+
+  /* Career route */
+  .route { margin-top: 72px; }
+  .route-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8FA5C8;
+    margin-bottom: 14px;
+  }
+  .route svg { width: 100%; height: auto; display: block; }
+  .route-line {
+    fill: none;
+    stroke: var(--pyrite);
+    stroke-width: 2;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: draw 2.4s ease-out 0.4s forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .route-dot { fill: #F4F6FA; stroke: var(--pyrite); stroke-width: 2; }
+  .route-city {
+    font-family: var(--mono);
+    font-size: 13px;
+    fill: #C9D4E6;
+  }
+  .route-org {
+    font-family: var(--mono);
+    font-size: 11px;
+    fill: #8FA5C8;
+  }
+
+  /* Pyrite fleck canvas */
+  #flecks {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* ---------- Languages ---------- */
+  .lang-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .lang {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 26px;
+    min-width: 150px;
+    flex: 1 1 150px;
+    text-align: center;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .lang:hover { transform: translateY(-4px); border-color: var(--pyrite); }
+  .lang .glyph {
+    font-size: 1.9rem;
+    color: var(--lapis);
+    line-height: 1.3;
+    display: block;
+  }
+  .lang .lname {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-top: 8px;
+  }
+  .lang .level {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--pyrite);
+    display: block;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* ---------- Scroll reveals (added by JS, safe without it) ---------- */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 88px 0; }
+  section + section { border-top: 1px solid var(--line); }
+  .section-kicker {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lapis);
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .section-intro { max-width: 62ch; color: var(--ink-soft); margin-bottom: 44px; }
+
+  /* Work cards */
+  .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .work-card {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+    display: flex; flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .work-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 42, 86, 0.10);
+  }
+  .work-tag {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pyrite);
+    background: #FBF6E7;
+    border-radius: 4px;
+    padding: 4px 10px;
+    align-self: flex-start;
+    margin-bottom: 16px;
+  }
+  .work-card h3 { font-family: var(--display); font-size: 1.25rem; font-weight: 600; margin-bottom: 10px; }
+  .work-card p { color: var(--ink-soft); font-size: 0.95rem; flex-grow: 1; }
+  .work-card a.visit {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+  .work-card a.visit + a.visit { margin-top: 8px; }
+
+  /* Capabilities */
+  .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .cap {
+    border-left: 3px solid var(--lapis);
+    padding-left: 22px;
+  }
+  .cap h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
+  .cap p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 14px; }
+  .cap ul { list-style: none; }
+  .cap li {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    padding: 3px 0;
+  }
+  .cap li::before { content: "· "; color: var(--pyrite); font-weight: 700; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
+  .about-text p { margin-bottom: 18px; color: var(--ink-soft); }
+  .about-text p:first-of-type { color: var(--ink); font-size: 1.08rem; }
+  .about-facts {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+  }
+  .about-facts dt {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lapis);
+    margin-top: 18px;
+  }
+  .about-facts dt:first-child { margin-top: 0; }
+  .about-facts dd { font-size: 0.95rem; margin-top: 4px; }
+
+  /* Contact */
+  .contact { background: var(--lapis-deep); color: #F4F6FA; }
+  .contact .section-kicker { color: var(--pyrite); }
+  .contact h2 { color: #FFFFFF; }
+  .contact p { color: #C9D4E6; max-width: 56ch; }
+  .contact-links { margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+  footer {
+    background: var(--lapis-deep);
+    color: #8FA5C8;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    padding: 28px 0;
+    border-top: 1px solid rgba(244, 246, 250, 0.12);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .work-grid, .cap-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    .nav-links { gap: 18px; }
+    .nav-links a:nth-child(n+4) { display: none; }
+    section { padding: 64px 0; }
+    header.hero { padding: 72px 0 56px; }
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Meena Momand</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="flecks" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="hero-kicker">Web developer &amp; data analyst — Erie, PA</p>
+    <h1>I build websites, then measure what they do.</h1>
+    <p class="lede">Most developers hand over a site and walk away. I build on <strong>Wix, WordPress, Drupal, and custom code</strong> — and then use <strong>analytics</strong> to show whether it's actually working.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#work">See my work</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+
+    <div class="route" aria-label="Career route: Kabul, Kobe, Bangkok, Geneva, Erie">
+      <p class="route-label">The route so far</p>
+      <svg viewBox="0 0 1000 130" xmlns="http://www.w3.org/2000/svg" role="img">
+        <path class="route-line" d="M 40 70 C 160 20, 240 110, 350 70 S 560 20, 660 70 S 880 110, 960 70" />
+        <circle class="route-dot" cx="40"  cy="70" r="6"/>
+        <circle class="route-dot" cx="350" cy="70" r="6"/>
+        <circle class="route-dot" cx="540" cy="47" r="6"/>
+        <circle class="route-dot" cx="740" cy="82" r="6"/>
+        <circle class="route-dot" cx="960" cy="70" r="6"/>
+        <text class="route-city" x="40"  y="100" text-anchor="start">Kabul</text>
+        <text class="route-org"  x="40"  y="116" text-anchor="start">Ministries · UNICEF</text>
+        <text class="route-city" x="350" y="100" text-anchor="middle">Kobe</text>
+        <text class="route-org"  x="350" y="116" text-anchor="middle">MIS · KIC 2017</text>
+        <text class="route-city" x="540" y="30" text-anchor="middle">Kuala Lumpur</text>
+        <text class="route-org"  x="540" y="16" text-anchor="middle">UNCTAD · 2021</text>
+        <text class="route-city" x="740" y="110" text-anchor="middle">Bangkok</text>
+        <text class="route-org"  x="740" y="126" text-anchor="middle">UNDP</text>
+        <text class="route-city" x="960" y="100" text-anchor="end">Erie</text>
+        <text class="route-org"  x="960" y="116" text-anchor="end">MBA 2026 · SBDC</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <p class="section-kicker">Selected work</p>
+    <h2>Built for the UN. Live right now.</h2>
+    <p class="section-intro">Sites I've designed and developed for UNICEF, UNCTAD, and UNDP — plus community and small business work. Every one of these is a working site you can open today.</p>
+    <div class="work-grid">
+      <article class="work-card">
+        <span class="work-tag">UNICEF · WordPress</span>
+        <h3>Polio Free Afghanistan</h3>
+        <p>Custom WordPress site for UNICEF Afghanistan's polio eradication campaign — designed and built end to end as the sole developer.</p>
+        <a class="visit" href="https://poliofreeafghanistan.af/" target="_blank" rel="noopener">Visit poliofreeafghanistan.af →</a>
+      </article>
+      <article class="work-card">
+        <span class="work-tag">UNCTAD · WordPress · 7 languages</span>
+        <h3>ASYCUDA</h3>
+        <p>The global website for UNCTAD's ASYCUDA customs automation program, developed in WordPress and delivered in seven languages.</p>
+        <a class="visit" href="https://asycuda.org/en/" target="_blank" rel="noopener">Visit asycuda.org →</a>
+      </article>
+      <article class="work-card">
+        <span class="work-tag">UNDP · Wix</span>
+        <h3>Youth Co:Lab</h3>
+        <p>The site for UNDP's Youth Co:Lab initiative, built in Wix — proof that platform builds can serve an international program.</p>
+        <a class="visit" href="https://www.youthcolab.org/" target="_blank" rel="noopener">Visit youthcolab.org →</a>
+      </article>
+      <article class="work-card">
+        <span class="work-tag">UNDP · WordPress LMS</span>
+        <h3>Youth Co:Lab Learn</h3>
+        <p>A learning platform built for UNDP in WordPress — a full LMS with courses and lessons for young entrepreneurs.</p>
+        <a class="visit" href="https://www.youthcolab-learn.org/" target="_blank" rel="noopener">Visit youthcolab-learn.org →</a>
+      </article>
+      <article class="work-card">
+        <span class="work-tag">Drupal · Wix migration</span>
+        <h3>Wix → Drupal migrations</h3>
+        <p>Three sites migrated from Wix to Drupal with fully customized themes, designed and developed from scratch.</p>
+        <a class="visit" href="https://www.asyhub.org/about-asyhub" target="_blank" rel="noopener">asyhub.org →</a>
+        <a class="visit" href="https://www.ecites.org/" target="_blank" rel="noopener">ecites.org →</a>
+        <a class="visit" href="https://www.asyrec.org/" target="_blank" rel="noopener">asyrec.org →</a>
+      </article>
+      <article class="work-card">
+        <span class="work-tag">Wix · Local clients</span>
+        <h3>Community &amp; small business</h3>
+        <p>Sites for a wellness practice, a university small business center, and a community fabrication lab.</p>
+        <a class="visit" href="https://relaxapy.com" target="_blank" rel="noopener">relaxapy.com →</a>
+        <a class="visit" href="https://sbdcgannon.org" target="_blank" rel="noopener">sbdcgannon.org →</a>
+        <a class="visit" href="https://valleyfablab.org" target="_blank" rel="noopener">valleyfablab.org →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="capabilities">
+  <div class="wrap">
+    <p class="section-kicker">Capabilities</p>
+    <h2>Three skill sets, one person.</h2>
+    <p class="section-intro">Hire one person who can design the site, build it, and tell you what the numbers say afterward.</p>
+    <div class="cap-grid">
+      <div class="cap">
+        <h3>Custom development</h3>
+        <p>Hand-coded front ends with motion and 3D where it earns its place.</p>
+        <ul>
+          <li>HTML / CSS / JavaScript</li>
+          <li>Three.js</li>
+          <li>GSAP</li>
+          <li>Bootstrap</li>
+          <li>PHP</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h3>Platform builds</h3>
+        <p>Fast, maintainable sites your team can update without calling a developer.</p>
+        <ul>
+          <li>Wix</li>
+          <li>WordPress</li>
+          <li>Drupal</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h3>Data &amp; analytics</h3>
+        <p>Dashboards and reporting that turn site traffic into decisions.</p>
+        <ul>
+          <li>Power BI</li>
+          <li>Google Analytics</li>
+          <li>Market research</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="languages">
+  <div class="wrap">
+    <p class="section-kicker">Languages</p>
+    <h2>Seven languages. One job: clarity.</h2>
+    <p class="section-intro">Multilingual sites aren't an add-on for me — I've lived in the languages I build for. The 7-language ASYCUDA site wasn't my first time thinking in more than one script.</p>
+    <div class="lang-grid">
+      <div class="lang"><span class="glyph">پښتو</span><span class="lname">Pashto</span><span class="level">Native</span></div>
+      <div class="lang"><span class="glyph">دری</span><span class="lname">Dari</span></div>
+      <div class="lang"><span class="glyph">اردو</span><span class="lname">Urdu</span></div>
+      <div class="lang"><span class="glyph">العربية</span><span class="lname">Arabic</span></div>
+      <div class="lang"><span class="glyph">日本語</span><span class="lname">Japanese</span></div>
+      <div class="lang"><span class="glyph">ไทย</span><span class="lname">Thai</span></div>
+      <div class="lang"><span class="glyph">English</span><span class="lname">English</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <p class="section-kicker">About</p>
+    <h2>Two degrees, five countries, one path.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm Meena Momand — a woman in tech from Afghanistan, now based in Erie, Pennsylvania. Friends and colleagues call me Meenjo.</p>
+        <p>I earned my bachelor's in computer science in Afghanistan in 2012, then spent years building digital systems inside government ministries and with UNICEF — including the website for the polio eradication campaign. A master's in management information systems at the Kobe Institute of Computing took me to Japan. In 2021 my first international posting took me to Malaysia with UNCTAD, and from there UNDP brought me to Bangkok.</p>
+        <p>From Bangkok I moved to the United States, where I completed my second master's — an MBA in Business Analytics at Gannon University, May 2026. Today I work as a Market &amp; Data Analyst at the Gannon University SBDC, helping small businesses make decisions with data, and I build websites for clients as a freelance developer. The two halves feed each other — I don't just ship a site, I can tell you whether it's doing its job.</p>
+      </div>
+      <dl class="about-facts">
+        <dt>Currently</dt>
+        <dd>Market &amp; Data Analyst, Gannon University SBDC</dd>
+        <dt>Education</dt>
+        <dd>MBA, Business Analytics — Gannon University, May 2026</dd>
+        <dd>MIS — Kobe Institute of Computing (KIC), 2017</dd>
+        <dd>BSc, Computer Science — Afghanistan, 2012</dd>
+        <dt>Previously</dt>
+        <dd>Afghan government ministries · UNICEF · UNCTAD (Malaysia) · UNDP (Bangkok)</dd>
+        <dt>Freelance</dt>
+        <dd>Web design &amp; development — available for projects</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="section-kicker">Contact</p>
+    <h2>Have a project in mind?</h2>
+    <p>Whether it's a new site, a rebuild, or making sense of your analytics — send a message and I'll get back to you quickly.</p>
+    <div class="contact-links">
+      <a class="btn btn-gold" href="mailto:meena.momand5@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://www.upwork.com/freelancers/meenam9" target="_blank" rel="noopener">Hire me on Upwork</a>
+      <a class="btn btn-ghost" href="https://github.com/meeno-m" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" https://www.linkedin.com/in/meenamomand/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Meena Momand · Built by hand, measured by data.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Pyrite flecks drifting in the hero ---- */
+  var canvas = document.getElementById('flecks');
+  if (canvas && !reduced) {
+    var ctx = canvas.getContext('2d');
+    var flecks = [];
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    function size() {
+      var r = canvas.parentElement.getBoundingClientRect();
+      canvas.width = r.width * dpr;
+      canvas.height = r.height * dpr;
+    }
+
+    function seed() {
+      flecks = [];
+      var count = Math.floor(canvas.width / dpr / 18);
+      for (var i = 0; i < count; i++) {
+        flecks.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: (Math.random() * 1.6 + 0.4) * dpr,
+          vx: (Math.random() - 0.5) * 0.15 * dpr,
+          vy: (Math.random() - 0.5) * 0.12 * dpr,
+          a: Math.random() * 0.5 + 0.15,
+          tw: Math.random() * 0.02 + 0.005
+        });
+      }
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < flecks.length; i++) {
+        var f = flecks[i];
+        f.x += f.vx; f.y += f.vy;
+        f.a += f.tw;
+        if (f.a > 0.7 || f.a < 0.1) f.tw *= -1;
+        if (f.x < 0) f.x = canvas.width; if (f.x > canvas.width) f.x = 0;
+        if (f.y < 0) f.y = canvas.height; if (f.y > canvas.height) f.y = 0;
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(201, 162, 39,' + f.a.toFixed(2) + ')';
+        ctx.fill();
+      }
+      requestAnimationFrame(tick);
+    }
+
+    size(); seed(); tick();
+    window.addEventListener('resize', function () { size(); seed(); });
+  }
+
+  /* ---- Scroll reveals (progressive enhancement) ---- */
+  if ('IntersectionObserver' in window && !reduced) {
+    var targets = document.querySelectorAll(
+      '.work-card, .cap, .lang, .about-text, .about-facts, .section-kicker, section h2, .section-intro'
+    );
+    targets.forEach(function (el, i) {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i % 3) * 0.08 + 's';
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>
