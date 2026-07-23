@@ -12,7 +12,7 @@
 
 ---
 
-## ☕ The short version
+## ☕ About Me
 
 I'm a designer-developer with **10+ years** of work across **government, non-profits, and UN organizations** — UNICEF, UNCTAD, and UNDP. I take products from the first wireframe to the last line of code: front-end development, product design, and the data to prove it worked.
 
